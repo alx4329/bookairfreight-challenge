@@ -1,4 +1,5 @@
 import moment from "moment";
+import countryList from 'country-list'
 export const getQuote = ({fromCountry,toCountry,price,channel})  => {
     const deliveryRange = getDeliveryRange(channel)
     const deliveryDate = getDeliveryDate(deliveryRange)
@@ -30,4 +31,20 @@ const getDeliveryDate = (range) =>{
     const start = moment(today).add(range.start,'days')
     const to = moment(today).add(range.end,'days')
     return `${start.format("MMM DD")} - ${to.format("MMM DD")}`
+}
+
+export const validateCountry = (country) => {
+    if(!country || typeof(country) !== 'string') return false
+    const trimCountry = country.trim()
+    const nameandcodes = countryList.getNameList()
+    if(nameandcodes[trimCountry.toLowerCase()]) return true
+    else {
+            const names = countryList.getNames()
+            const found = names.find(item => item.toLocaleLowerCase().includes(trimCountry.toLocaleLowerCase()))
+            return found ? true : false
+        }
+}
+
+export const validatePrice = (price) => {
+    return price > 0 ? true : false
 }

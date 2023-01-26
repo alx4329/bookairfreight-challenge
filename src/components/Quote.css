@@ -1,0 +1,12 @@
+.quote-table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.quote-table td {
+    border: solid 1px;
+    text-align: center;
+}
+.quote-table tr td:first-child{
+    width: 30%;
+}

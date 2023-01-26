@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getQuote } from '../services/getQuote'
+import { getQuote, validateCountry, validatePrice } from '../services/getQuote'
 import './QuoteForm.css'
 
 const QuoteForm = ({setQuoteData}) => {
@@ -19,8 +19,12 @@ const QuoteForm = ({setQuoteData}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(!state.fromCountry || ! state.toCountry || ! state.price) return alert('Please complete all the fields')
+        if(!validateCountry(state.fromCountry)) alert('Starting country doesnt seem to be a country')
+        if(!validateCountry(state.toCountry)) alert('Destination country doesnt seem to be a country')
+        if(!validatePrice(state.price)) return alert('Price must be greater than 0')
         const quoteData = getQuote(state)
         setQuoteData(quoteData)
+        setState(initialState)
     }
     return (
     <>
@@ -44,7 +48,7 @@ const QuoteForm = ({setQuoteData}) => {
                     <option value='ocean'>Ocean</option>
                 </select>
             </div>
-            <button type='submit' >Create quote</button>
+            <button className='submit-btn' type='submit' >Create quote</button>
         </form>
     </>
   )

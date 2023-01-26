@@ -2,4 +2,23 @@
     display: flex;
     flex-direction: column;
     width: 150px;
+    margin-bottom: 10px;
+
+}
+.item label{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+
+}
+
+.submit-btn{
+    margin: 10px 0 10px 0;
+    width: 100px;
+    padding: 10px;
+    background-color: #3898ec;
+    color:white;
+    border:none;
+    border-radius: 5px;
+
 }
