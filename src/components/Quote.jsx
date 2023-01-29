@@ -6,17 +6,36 @@ const Quote = ({data}) => {
     <>
         <table className='quote-table' >
             <tr>
-                <td>Traditional {data.channel} freight</td>
-                <td>{data.route}</td>
+                <td >
+                    <div className='first-cell' >
+                    {data.channel === 'air' ? (
+                        <span class="ship-icon plane material-symbols-outlined">
+                            flight
+                        </span>
+                    ):(
+                        <span class="ship-icon material-symbols-outlined">
+                        directions_boat
+                        </span>
+                    )}Traditional {data.channel} freight
+                    </div>
+                </td>
+                <td  rowspan="2">
+                    <div className='header-cell'>
+                    {data.route}
+                    </div>
+                    <div className='body-cell' >
+                        US$ {data.price}
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td>
-                    <div>{data.deliveryRange}</div>
-                    <div>Estimated delivery<br/>{data.deliveryDate}</div>
+                <td  >
+                    <div className='details-cell' >
+                        <div className='delivery-range' >{data.deliveryRange}</div>
+                        <div className='estimated-delivery' >Estimated delivery<br/><b>{data.deliveryDate}</b></div>
+                    </div>
                 </td>
-                <td>
-                    US$ {data.price}
-                </td>
+                
             </tr>
         </table>
     </>

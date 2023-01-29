@@ -1,6 +1,10 @@
 .quote-table{
     border-collapse: collapse;
     width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    /* height: 200px; */
 }
 
 .quote-table td {
@@ -10,3 +14,65 @@
 .quote-table tr td:first-child{
     width: 30%;
 }
+.quote-table tr:first-child td:first-child{
+    text-align: left;
+}
+.header-cell{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color:white;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.body-cell{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+.details-cell{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.first-cell{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    /* height: 60px; */
+}
+.cell-1{
+    height: 70px;
+}
+.cell-2{
+    height: 30px;
+}
+.ship-icon{
+    /* fill: 1; */
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    font-weight: 700;
+    color:#3898ec;
+    font-display: block;
+}
+.plane{
+    transform: rotate(90deg);
+}
+.delivery-range{
+    font-family: sans-serif;
+    color: #4129c7;
+    font-weight: 700;
+    font-size: 20px;
+    padding-top: 10px;
+}
+.estimated-delivery{
+    font-size: 15px;
+}
+
