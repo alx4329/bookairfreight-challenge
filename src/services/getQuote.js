@@ -1,9 +1,10 @@
 import moment from "moment";
 import countryList from 'country-list'
+
 export const getQuote = ({fromCountry,toCountry,price,channel})  => {
     const deliveryRange = getDeliveryRange(channel)
     const deliveryDate = getDeliveryDate(deliveryRange)
-    const route = `${fromCountry} >> ${toCountry}`
+    const route = `${toUpperCase(fromCountry)} >> ${toUpperCase(toCountry)}`
     return {
         channel,
         deliveryRange: `${deliveryRange.start}-${deliveryRange.end} days`, 
@@ -32,7 +33,13 @@ const getDeliveryDate = (range) =>{
     const to = moment(today).add(range.end,'days')
     return `${start.format("MMM DD")} - ${to.format("MMM DD")}`
 }
-
+const toUpperCase = (str) => {
+    const words = str.split(' ')
+    const upperCase = words.map(word=>{
+        return word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    return upperCase.join('')
+}
 export const validateCountry = (country) => {
     if(!country || typeof(country) !== 'string') return false
     const trimCountry = country.trim()

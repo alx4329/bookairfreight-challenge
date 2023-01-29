@@ -21,6 +21,7 @@ const QuoteForm = ({setQuoteData}) => {
         if(!state.fromCountry || ! state.toCountry || ! state.price) return alert('Please complete all the fields')
         if(!validateCountry(state.fromCountry)) alert('Starting country doesnt seem to be a country')
         if(!validateCountry(state.toCountry)) alert('Destination country doesnt seem to be a country')
+        if(state.fromCountry === state.toCountry) return alert("Starting and destination can't be the same")
         if(!validatePrice(state.price)) return alert('Price must be greater than 0')
         const quoteData = getQuote(state)
         setQuoteData(quoteData)
